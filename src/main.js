@@ -1,13 +1,23 @@
 import {getPokemonsByName} from './data.js';
+import {getPokemonsByType} from './data.js';
+import {getAllTypes} from './data.js';
 import data from './data/pokemon/pokemon.js';
 
+//sacar arreglo de pokemons y lo pone en pokemons
 const pokemons = data.pokemon;
-console.log(pokemons);
-//imprime todos los pokemon(nombre)
-/*for (let i= 0; i <pokemons.length; i++){
-    console.log(pokemons[i].name);
-}*/
+console.log(pokemons);//total de pokemon(todos)
 
-console.log(getPokemonsByName(pokemons, "eevee"));
+//enlista tipos
+const totalTypes = getAllTypes(pokemons);
+const iterator1 = totalTypes.keys();
+for (let i= 0; i< totalTypes.size; i++){
+    
+    console.log(iterator1.next().value);
+}
 
+
+console.log("listado tipos "+ totalTypes);
+
+console.log(getPokemonsByName(pokemons, "eevee")); //buscando un nombre
+console.log(getPokemonsByType(pokemons, "water")); //buscando un tipo
 
