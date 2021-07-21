@@ -8,11 +8,11 @@ export const name = data.athletes.sort((a,b) => {
 })
  //console.log(name);
 
-export const sport = data.athletes.filter(function(spt) {
+/*export const sport = data.athletes.filter(function(spt) {
   return spt.sport == "Volleyball";
-});
+});*/
 
-export function paisito(pais){
+export function searchByTeam(pais){
   let resultadito=data.athletes.filter(function(team) {
   return team.team == pais;
 })
