@@ -10,9 +10,10 @@ console.log(pokemons);//total de pokemon(todos)
 //enlista tipos
 const totalTypes = getAllTypes(pokemons);
 const iterator1 = totalTypes.keys();
+
 for (let i= 0; i< totalTypes.size; i++){
     
-    console.log(iterator1.next().value);
+    console.log("tipo de Pokemon: " + iterator1.next().value);
 }
 
 

@@ -14,150 +14,136 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+
     <div id="root"></div>
-    <div class="jumbotron text-center" style="margin-bottom:0">
-      <h2>Pokemón</h2>
+      <div class="jumbotron text-center" style="margin-bottom:0"> <!--esto debe estar en un header-->
+        <h2>Pokemón</h2>
         <h3 style="color:rgb(51, 51, 201);">Lidia & Bell</h3>
+    
+      </div>
   
-    </div>
-  
-       <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-         <a class="navbar-brand" href="index.html">Inicio</a>
-         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-           <span class="navbar-toggler-icon"></span>
-         </button>
-  
-         <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav">
-               <!-- Dropdown -->
-              <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                     Tipos de Pokémon
-                    </a>
-                  <div class="dropdown-menu">
-                     <a class="dropdown-item" href="#">Características</a>
-                    
-  
-                  </div>
-              </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="">Características </a>
-               </li>
-  
-              </ul>
-          </div>
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <a class="navbar-brand" href="index.html">Inicio</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+            <!-- Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" align="justify-content-center">Tipos de Pokémon</a>
+              
+            </li>
+            <input type="text" placeholder="Buscar por nombre"></input>
+            <button id="search" class="add_botom">
+              <ion-icon name="search-outline"></ion-icon>
+            </button>
+            
+
+          </ul>
+        </div>
       </nav>
   
-      <div class="container" style="margin-top:30px">
-          <div class="row">
-  
-          </div>
+      <div class="container" style="margin-top:30px"> <!--esto separa los cuadros de pokemon, hay que modificar el formato para hacer contenedores que tengan la misma medida-->
+        <div class="row"></div>
       </div>
   </div>
   
   
   <div class="container ">
     <div class="row">
-        <div class="col-md-4 text-center animate-box fadeInUp animated-fast">
-        <div class="services">
+      <div class="col-md-4 text-center animate-box fadeInUp animated-fast">
+        <div class="contenedorPokemon">
           <span class="icon">
             <i class="flaticon-act"></i>
           </span>
           <div class="desc">
             <h3 id="001">Bulbasaur</h3>
-            <ul>
-              <li>
-                Tipo: Plantas,Veneno
-              </li>
-              <li>Evoluciones: 2 fases</li>
-            </ul>
+            
             <div>
               <img onmouseover="bigImg(this)" onmouseout="normalImg(this)" border="0" src="imgs/001.png" alt="pikachu"
               class="imagenesServicios">
             </div>
             <br>
-            <a href="#" class="btn btn-primary"> Más info </a>
+            <button class="btn btn-primary">Ver más info</button>
           </div>
         </div>
       </div>
       <!---fICHA MATERIA 2-->
       <div class="col-md-4 text-center animate-box fadeInUp animated-fast">
-        <div class="services">
+        <div class="contenedorPokemon">
           <span class="icon">
             <i class="flaticon-act"></i>
           </span>
           <div class="desc">
-            <h3 id="PensionAlimenticia">Charmander</h3>
-            <p align="justify">Debilidades:Agua,Tierra y Roca </p>
+            <h3 id="segundoPokemon">Charmander</h3>
             <div>
               <img src="imgs/004.png" class="imagenesServicios">
             </div>
             <br>
-            <a href="contacto.html" class="btn btn-primary">Más info </a>
+            <button class="btn btn-primary">Ver más info</button>
           </div>
         </div>
       </div>
       <!--Divorcio-->
       <div class="col-md-4 text-center animate-box fadeInUp animated-fast">
-        <div class="services">
+        <div class="contenedorPokemon">
           <span class="icon">
             <i class="flaticon-act"></i>
           </span>
           <div class="desc">
             <h3 id="Squirtle"></a>Squirtle</h3>
-            <p align="justify">Caracteristicas del poke .</p>
             <div>
               <img onmouseover="bigImg(this)" onmouseout="normalImg(this)" border="0" src="imgs/007.png" alt="G" class="imagenesServicios">
             </div>
             <br>
-            <a href="contacto.html" class="btn btn-primary"> Deseas más info </a>
+            <button class="btn btn-primary">Ver más info</button>
           </div>
         </div>
       </div>
       <!---Testamento-->
       <div class="col-md-4 text-center animate-box fadeInUp animated-fast">
-        <div class="services">
+        <div class="contenedorPokemon">
           <span class="icon">
             <i class="flaticon-act"></i>
           </span>
           <div class="desc">
             <h3 id="009"> Blastoise</h3>
-            <p align="justify">Debilidades: Electricidad y Plantas </p>
             <div>
               <img onmouseover="bigImg(this)" onmouseout="normalImg(this)" border="0" src="imgs/009.png" alt="Pok1" class="imagenesServicios">
             </div>
             <br>
-            <a href="contacto.html" class="btn btn-primary"> Deseas más info </a>
+            <button class="btn btn-primary">Ver más info</button>
           </div>
         </div>
       </div>
       <!---fICHA MATERIA 3-->
       <div class="col-md-4 text-center animate-box fadeInUp animated-fast">
-        <div class="services">
+        <div class="contenedorPokemon">
           <span class="icon">
             <i class="flaticon-act"></i>
           </span>
           <div class="desc">
             <h3 id="009">Raticate </h3>
-            <p align="justify">Debilidades: Electricidad y Plantas </p>
             <div>
               <img onmouseover="bigImg(this)" onmouseout="normalImg(this)" border="0" src="imgs/020.png" alt="Pok1" class="imagenesServicios">
             </div>
             <br>
-            <a href="#" class="btn btn-primary"> Deseas más info </a>
+            <button class="btn btn-primary">Ver más info</button>
           </div>
         </div>
       </div>
       <!---fICHA MATERIA 3-->
       <div class="col-md-4 text-center animate-box fadeInUp animated-fast">
-        <div class="services">
+        <div class="contenedorPokemon">
           <span class="icon">
             <i class="flaticon-act"></i>
           </span>
   
-            <br>
-            <a href="#" class="btn btn-primary"> Deseas más info </a>
-          </div>
+          <br>
+          <button class="btn btn-primary" id="otherPage">Ligas alternativas</button>
+          
         </div>
       </div>
   
@@ -181,6 +167,6 @@
   </div>
   </footer>
     <script src="main.js" type="module"></script>
-    
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   </body>
 </html>

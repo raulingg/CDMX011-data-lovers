@@ -1,6 +1,7 @@
 .scrollup.left {
     left:-50px;
-}														
+}	
+
 .scrollup {
 position: fixed;
 bottom: 20px;
@@ -13,12 +14,12 @@ border-radius: 50%;
 text-align: center;
 cursor: pointer;
 transition: all 0.3s ease-in-out;
--webkit-transition: all 0.3s ease-in-out;
+-webkit-transition: all 0.3s ease-in-out; /*esto permite la adaptacion a pantalla*/
 }
 .scrollup:hover{
 background: #606070;
 }
-.services {
+.contenedorPokemon {
     position: relative;
     padding: 30px;
     margin-bottom: 60px;
@@ -29,7 +30,7 @@ background: #606070;
     transition: 0.3s;
 }
 
-.services .icon {
+.contenedorPokemon .icon {
     text-align: center;
     margin: 0 auto;
     margin-bottom: 20px;
@@ -39,8 +40,9 @@ background: #606070;
     -webkit-transition: 0.3s;
     -o-transition: 0.3s;
     transition: 0.3s;
+    
 }
-.services .icon i {
+.contenedorPokemon .icon i {
     display: table-cell;
     vertical-align: middle;
     height: 70px;
@@ -48,9 +50,24 @@ background: #606070;
     line-height: 40px;
     color: #31486f;
 }
-.services h3 {
+.contenedorPokemon h3 {
 font-weight: 400;
 }
-.services h3 a {
+.contenedorPokemon h3 a {
     color: #31486f;
+}
+.add_botom{
+    font-size: 35px;
+    background:none;
+    border: none;
+    color: #28B9B5;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1.1;
+    margin-left: 10px;
+    
+    
+}
+p{
+    text-justify: auto;
 }
