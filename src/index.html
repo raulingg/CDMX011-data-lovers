@@ -17,7 +17,8 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header>
+    <header class ="nav_header">
+      <div class = "nav_main">
       <nav class="navigation">
         <ul>
           <li><a href="https://olympics.com/tokyo-2020/es/
@@ -26,10 +27,10 @@
           <li><a href="https://olympics.com/es/olympic-channel">Olympic Channel</a></li>
           <li><a href="https://olympics.com/es/olympic-games/rio-2016">Rio 2016</a></li>
         </ul>
-      </nav>
-      <h1> Olympic-Data </h1>
+    </div>
     </header>
     <main>
+      <h1> Olympic-Data </h1>
       <section>
         <p>En esta página encontrarás los datos más relevantes de las Olimpiadas Rio de Janeiro 2016.</p> <br></br>
       <p>Los Juegos Olimpicos de Rio de Janeiro 2016 no solo fue la celebración deportiva más importante en el mundo,
@@ -37,6 +38,7 @@
          Se llevarón acabo del 5 al 21 de agosto en donde participárón 11,238 atletas y 207 equipos, 
          tuvo 34 sedes de competición dondé se llevarón acabo 307 eventos deportivos.</p>
       </section>
+      
     <select id="pais">
         <option>Selecciona un pais</option>
         <option>Algeria</option>
@@ -127,21 +129,19 @@
         <option>Venezuela</option>
         <option>Vietnam</option>
     </select>
+    <div id ="pagination"></div>
     <section class="tarjeta">
-      <div class="a-card" id="athletes">
-      </div>
-      <div class="list" id="list"></div>
-      <div class= "pagenumber" id ="pagination"></div>
+      <div class="a-card" id="athletes"/>
     </section>
 
   </main>
+
   <footer>
     <nav class="Footernav">
       <ul>
         <li><a href="https://www.youtube.com/user/olympic
           ">Youtube</a></li>
-        <li><a href="https://instagram.com/olympics?utm_medium=copy_link">instagram</a></li>
-        <li><a href="https://olympics.com/es/olympic-channel">Olympic Channel</a></li>
+        <li><a href="https://instagram.com/olympics?utm_medium=copy_link">Instagram</a></li>
         <li><a href="https://m.facebook.com/olympics/">Facebook</a></li>
       </ul>
     </nav>

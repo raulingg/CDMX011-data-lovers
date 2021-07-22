@@ -1,6 +1,6 @@
 import { searchByTeam} from './data.js';
 //import athletes from './data/athletes/athletes.js';
-import data from './data/athletes/athletes.js';
+//import data from './data/athletes/athletes.js';
 
 /*let titulo = document.getElementById("olympics-title");
 */
@@ -8,12 +8,17 @@ let divAthletes =  document.getElementById("athletes");
 
 let selectPais = document.getElementById("pais")
 
+let pagination = document.getElementById("pagination");
 
+let currentPage = 1;
+let rows = 5;
 
 selectPais.addEventListener("change",function(e){
     divAthletes.innerHTML = "";
+    pagination.innerHTML = "";
     const items = searchByTeam(e.target.value);
-    DisplayList( items, listElement, rows, current_page);
+    setupPagination(items, pagination, rows );
+    DisplayList( items, divAthletes, rows, currentPage);
 });
 
 function obtenerElementoAtleta(atleta){
@@ -52,21 +57,52 @@ function obtenerElementoAtleta(atleta){
     return ul;
 }
 
-const listElement= document.getElementById("list");
-const paginationElementos= document.getElementById("pagination");
 
-let current_page = 2;
-let rows = 5;
+
+
 
 function DisplayList (items, wrapper, rows_per_page, page) {
-    wrapper.innerHTML = "";
     page--;
 
     let loopStart = rows_per_page * page;
     let paginatedItems = items.slice (loopStart, loopStart + rows_per_page);
     console.log(paginatedItems);
-    //for (let i = loopStart; i < loopStart + rows_per_page; i++) {
-    paginatedItems.forEach(a => divAthletes.appendChild(obtenerElementoAtleta(a)))
+    paginatedItems.forEach(a => wrapper.appendChild(obtenerElementoAtleta(a)))
+}
+
+function setupPagination (items, wrapper,rows_per_page){
+    wrapper.inderHtml="";
+
+    let page_count = Math.ceil(items.length / rows_per_page);
+    console.log("page_count"+page_count);
+    for(let i = 1; i < page_count + 1; i++) {
+       console.log("estoy en la pagina "+i);
+        let btn = paginationButton(i);
+        wrapper.appendChild(btn);
+    }
+    //console.log("Esto tiene el wrapper");
+    //console.log(wrapper);
+}
+
+function paginationButton(page) {
+    let button = document.createElement("button");
+    button.innerText = page;
+    button.setAttribute("id", "btn");
+    button.value= page;
+    //console.log("Boton creado "+ button.value);
+    if(currentPage == page);//button.classList.add("active");
+    button.addEventListener("click", function (){
+        currentPage = button.value;
+        alert("esto es"+ currentPage);
+        
+
+       /* let currentBtn = document.querySelector("#btn button.active")
+        currentBtn.classList.remove("active");
+        button.classList.add("active");*/
+        
+    });
+
+    return button;
 }
  
 
