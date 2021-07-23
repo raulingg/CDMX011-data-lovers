@@ -10,16 +10,54 @@ let selectPais = document.getElementById("pais")
 
 let pagination = document.getElementById("pagination");
 
-let currentPage = 1;
-let rows = 5;
+let avatar = 5;
 
 selectPais.addEventListener("change",function(e){
     divAthletes.innerHTML = "";
     pagination.innerHTML = "";
     const items = searchByTeam(e.target.value);
-    setupPagination(items, pagination, rows );
-    DisplayList( items, divAthletes, rows, currentPage);
+    setupPagination(items, pagination, avatar );
+    //DisplayList( items, divAthletes, avatar, currentPage);
 });
+function setupPagination (items, wrapper,avatarPerPage){
+    wrapper.inderHtml="";
+
+    let pageCount = Math.ceil(items.length / avatarPerPage);
+    //console.log("page_count"+page_count);
+    for(let i = 1; i < pageCount + 1; i++) {
+       //console.log("estoy en la pagina "+i);
+        let btn = paginationButton(i,items);
+        wrapper.appendChild(btn);
+    }
+    //console.log("Esto tiene el wrapper");
+    //console.log(wrapper);
+}
+
+function DisplayList (items, divAthletes, avatarPerPage, page) {
+    page--;
+    let loopStart = avatarPerPage * page;
+    //console.log(loopStart)
+    let paginatedItems = items.slice (loopStart, loopStart + avatarPerPage);
+    //console.log(paginatedItems);
+    paginatedItems.forEach(a => divAthletes.appendChild(obtenerElementoAtleta(a)))
+}
+function paginationButton(page, items) {
+    let button = document.createElement("button");
+    button.value= page;
+    let currentPage = page;
+    button.innerText = button.value;
+    button.setAttribute("id", "btn");
+    //console.log("Boton creado "+ button.value);
+    if(currentPage == page);button.classList.add("active");
+    button.addEventListener("click", function (){
+        divAthletes.innerHTML="";
+        DisplayList( items, divAthletes, avatar, currentPage);
+       /* let currentBtn = document.querySelector("#btn button.active")
+        currentBtn.classList.remove("active");
+        button.classList.add("active");*/
+    });
+    return button;
+}
 
 function obtenerElementoAtleta(atleta){
     const ul = document.createElement("ul");
@@ -59,51 +97,6 @@ function obtenerElementoAtleta(atleta){
 
 
 
-
-
-function DisplayList (items, wrapper, rows_per_page, page) {
-    page--;
-
-    let loopStart = rows_per_page * page;
-    let paginatedItems = items.slice (loopStart, loopStart + rows_per_page);
-    console.log(paginatedItems);
-    paginatedItems.forEach(a => wrapper.appendChild(obtenerElementoAtleta(a)))
-}
-
-function setupPagination (items, wrapper,rows_per_page){
-    wrapper.inderHtml="";
-
-    let page_count = Math.ceil(items.length / rows_per_page);
-    console.log("page_count"+page_count);
-    for(let i = 1; i < page_count + 1; i++) {
-       console.log("estoy en la pagina "+i);
-        let btn = paginationButton(i);
-        wrapper.appendChild(btn);
-    }
-    //console.log("Esto tiene el wrapper");
-    //console.log(wrapper);
-}
-
-function paginationButton(page) {
-    let button = document.createElement("button");
-    button.innerText = page;
-    button.setAttribute("id", "btn");
-    button.value= page;
-    //console.log("Boton creado "+ button.value);
-    if(currentPage == page);//button.classList.add("active");
-    button.addEventListener("click", function (){
-        currentPage = button.value;
-        alert("esto es"+ currentPage);
-        
-
-       /* let currentBtn = document.querySelector("#btn button.active")
-        currentBtn.classList.remove("active");
-        button.classList.add("active");*/
-        
-    });
-
-    return button;
-}
  
 
 /*titulo.innerHTML = data.games + " Ciudad: "+data.city;

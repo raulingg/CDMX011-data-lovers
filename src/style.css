@@ -105,3 +105,9 @@ footer {
 .Footernav ul li {
   display: inline-block;
 }
+.btn{
+  background-color: blueviolet;
+}
+.btn:hover{
+  background-color: chocolate;
+}
