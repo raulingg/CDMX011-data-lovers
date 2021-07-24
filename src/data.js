@@ -13,9 +13,9 @@ export const name = data.athletes.sort((a,b) => {
 });*/
 
 export function searchByTeam(pais){
-  let resultadito=data.athletes.filter(function(team) {
+  let filterPerTeam=data.athletes.filter(function(team) {
   return team.team == pais;
 })
-return resultadito
+return filterPerTeam
 }
 

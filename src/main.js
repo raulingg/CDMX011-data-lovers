@@ -10,14 +10,14 @@ let selectPais = document.getElementById("pais")
 
 let pagination = document.getElementById("pagination");
 
-let avatar = 5;
-
+let avatar = 9;
+let currentPage = 1;
 selectPais.addEventListener("change",function(e){
     divAthletes.innerHTML = "";
     pagination.innerHTML = "";
     const items = searchByTeam(e.target.value);
     setupPagination(items, pagination, avatar );
-    //DisplayList( items, divAthletes, avatar, currentPage);
+    DisplayList( items, divAthletes, avatar, currentPage);
 });
 function setupPagination (items, wrapper,avatarPerPage){
     wrapper.inderHtml="";
@@ -60,39 +60,51 @@ function paginationButton(page, items) {
 }
 
 function obtenerElementoAtleta(atleta){
-    const ul = document.createElement("ul");
-    ul.classList.add("collection");
-    const aName = document.createElement("p");
-        aName.innerHTML = "Nombre: " + atleta.name;
-        aName.classList.add("collection-item");
-        aName.classList.add("avatar");
-    const aSport = document.createElement("p");
+    const div = document.createElement("div");
+    div.classList.add("collection");
+    let divContainerImage = document.createElement("div");
+    divContainerImage.classList.add("circular_landscape");
+    let img = document.createElement("IMG");
+    img.src= "images/"+atleta.gender+".png";
+    divContainerImage.appendChild(img);
+    div.appendChild(divContainerImage);
+    const aName = document.createElement("div");
+        aName.innerHTML =  atleta.name;
+        aName.classList.add("name_athlet");
+    const aSport = document.createElement("div");
         aSport.innerHTML = "Deporte: " + atleta.sport;
-    const aTeam = document.createElement("p");
+    const aTeam = document.createElement("div");
         aTeam.innerHTML = "Pais: " + atleta.team + " ("+ atleta.noc + ")";
-    const aEvent = document.createElement("p");
+        aTeam.classList.add("team_athlet");
+    const aEvent = document.createElement("div");
         aEvent.innerHTML = "Evento: " + atleta.event;
-    const aMedal = document.createElement("p");
+    const aMedal = document.createElement("div");
         aMedal.innerHTML = "Medalla: " + atleta.medal;
-    const aGender = document.createElement("p");
+        aMedal.classList.add("medall");
+    const aGender = document.createElement("div");
         aGender.innerHTML = "Genero: " + atleta.gender;
-    const aAge = document.createElement("p");
+            if(atleta.gender === 'F'){
+                    aGender.innerHTML = "Genero: Femenino";
+                }else{
+                    aGender.innerHTML = "Genero: Masculino";
+                }
+            
+    const aAge = document.createElement("div");
         aAge.innerHTML = "Edad: " + atleta.age + " años";
-    const aWeight = document.createElement("p");
+    const aWeight = document.createElement("div");
         aWeight.innerHTML = "Peso: " + atleta.weight + " kg";
-    const aHeight = document.createElement("p");
+    const aHeight = document.createElement("div");
         aHeight.innerHTML = "Estatura: " + atleta.height + " cm";    
-    ul.appendChild(aName);
-    ul.appendChild(aAge);
-    ul.appendChild(aGender);
-    ul.appendChild(aAge);
-    ul.appendChild(aWeight);
-    ul.appendChild(aHeight);
-    ul.appendChild(aTeam);
-    ul.appendChild(aSport);
-    ul.appendChild(aEvent);
-    ul.appendChild(aMedal);
-    return ul;
+    div.appendChild(aName);
+    div.appendChild(aTeam);
+    div.appendChild(aMedal);
+    div.appendChild(aSport);
+    div.appendChild(aEvent);
+    div.appendChild(aGender);
+    div.appendChild(aAge);
+    div.appendChild(aWeight);
+    div.appendChild(aHeight);
+    return div;
 }
 
 

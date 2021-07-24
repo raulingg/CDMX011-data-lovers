@@ -1,9 +1,9 @@
 body {
   height: 0%;
-  background-color: #FFFFFF;
+  background-color: #FBF8E1;
   margin: 0;
   box-sizing: border-box;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: 'Cabin', sans-serif;
 }
 
 h1 {
@@ -23,12 +23,16 @@ p {
 
 .nav_header {
   display: flex;
-  justify-content: space-between;
+  justify-content:right;
   align-items: center;
-  font-family: Roboto Slab;
+  font-family: 'Cabin', sans-serif;
   font-size: 18px;
-  background-color: #DCE5F9;
+  background-image: url(images/HEADER.webp);
   color: #dbd3d3;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left:0;
 }
 
 .nav_header a {
@@ -58,32 +62,69 @@ p {
   box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
 }
 
-
-.collection-item {
-  background-color: #fff;
-  line-height: 2rem;
-  padding: 10px 20px;
-  margin: 0;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-.collection-item.avatar {
-  min-height: 50px;
-  padding-left: 72px;
-  position: relative;
+.allCards {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .collection {
-  margin: 0.5rem 0 1rem 0;
-  border: 1px solid #e0e0e0;
-  border-radius: 2px;
+  width: 300px;
+  height: 500px;
+  padding: 30px;
+  margin: 20px;
+  align-content: center;
+  border-radius: 5px;
   overflow: hidden;
   position: relative;
-  padding-bottom: 10px;
+  padding-bottom: 30px;
+  background-image: url(images/fondoCard.png);
+  background-size: 100% 100% ;
+  border: 10px solid rgba(255, 255, 255, 0.89);
+  box-sizing: border-box;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  z-index: -3;
+
+}
+
+img {
+  width: 140px;
+  height: 140px;
+  padding: 0px 40px 10px;
+
+}
+.name_athlet{
+  font-family: 'Pathway Gothic One', sans-serif;
+  font-weight: bold;
+  font-stretch: semi-expanded;
+  font-size: 30px;
+  text-transform: uppercase;
+  padding-bottom: 8px;
+}
+.team_athlet{
+  font-family:'Pathway Gothic One', sans-serif;
+  font-size: 20px;
+  border:rgb(12, 12, 12);
+  float:right;
+  margin: 8px;
+}
+.medall{
+  font-family:'Pathway Gothic One', sans-serif;
+  font-size: 20px;
+  margin: 8px;
+  font-weight:lighter;
+  padding-bottom: 8px;
 }
 footer {
   position: fixed;
-  background: #DAF3DD;
+  background: linear-gradient(
+    180deg,
+    #39b5af 0%,
+    #50bb98 13.02%,
+    #b4d236 68.23%,
+    #f2cd1a 100%
+  );
   left: 0;
   bottom: 0;
   width: 100%;
@@ -91,23 +132,3 @@ footer {
   margin: 0 auto;
 }
 
-.Footernav ul li a {
-  display: block;
-  padding: 0.5rem 1rem;
-  transition: all 0.4s linear;
-  border-radius: 10px;
-}
-.Footernav ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.Footernav ul li {
-  display: inline-block;
-}
-.btn{
-  background-color: blueviolet;
-}
-.btn:hover{
-  background-color: chocolate;
-}
