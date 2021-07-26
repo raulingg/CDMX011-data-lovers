@@ -1,15 +1,18 @@
 import { searchByTeam} from './data.js';
+import{searchBySport} from './data.js';
+//import{searchByGender}from'./data.js';
+import{searchByMedal} from'./data.js';
 //import athletes from './data/athletes/athletes.js';
 //import data from './data/athletes/athletes.js';
 
 /*let titulo = document.getElementById("olympics-title");
 */
 let divAthletes =  document.getElementById("athletes");
-
 let selectPais = document.getElementById("pais")
-
+let selectSport= document.getElementById("Deportes")
+//let selectGender=document.getElementById("Género")
 let pagination = document.getElementById("pagination");
-
+let selectMedal = document.getElementById("Medallas")
 let avatar = 9;
 let currentPage = 1;
 selectPais.addEventListener("change",function(e){
@@ -19,6 +22,27 @@ selectPais.addEventListener("change",function(e){
     setupPagination(items, pagination, avatar );
     DisplayList( items, divAthletes, avatar, currentPage);
 });
+selectSport.addEventListener("change",function(e){
+    divAthletes.innerHTML = "";
+    pagination.innerHTML = "";
+    const items = searchBySport(e.target.value);
+    setupPagination(items, pagination, avatar );
+    DisplayList( items, divAthletes, avatar, currentPage);
+});
+selectMedal.addEventListener("change",function(e){
+    divAthletes.innerHTML = "";
+    pagination.innerHTML = "";
+    const items = searchByMedal(e.target.value);
+    setupPagination(items, pagination, avatar );
+    DisplayList( items, divAthletes, avatar, currentPage);
+});
+/*selectGender.addEventListener("change",function(e){
+    divAthletes.innerHTML = "";
+    pagination.innerHTML = "";
+    const items = searchByGender(e.target.value);
+    setupPagination(items, pagination, avatar );
+    DisplayList( items, divAthletes, avatar, currentPage);
+});*/
 function setupPagination (items, wrapper,avatarPerPage){
     wrapper.inderHtml="";
 
@@ -83,12 +107,6 @@ function obtenerElementoAtleta(atleta){
         aMedal.classList.add("medall");
     const aGender = document.createElement("div");
         aGender.innerHTML = "Genero: " + atleta.gender;
-            if(atleta.gender === 'F'){
-                    aGender.innerHTML = "Genero: Femenino";
-                }else{
-                    aGender.innerHTML = "Genero: Masculino";
-                }
-            
     const aAge = document.createElement("div");
         aAge.innerHTML = "Edad: " + atleta.age + " años";
     const aWeight = document.createElement("div");
