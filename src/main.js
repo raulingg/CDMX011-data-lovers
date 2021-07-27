@@ -8,17 +8,33 @@ const pokemons = data.pokemon;
 console.log(pokemons);//total de pokemon(todos)
 
 //enlista tipos
-const totalTypes = getAllTypes(pokemons);
-const iterator1 = totalTypes.keys();
+const searchTypes =()=>{
+    let totalTypes = new Map();
+    totalTypes = getAllTypes(pokemons, totalTypes);
+    const iterator1 = totalTypes.keys();
 
-for (let i= 0; i< totalTypes.size; i++){
-    
-    console.log("tipo de Pokemon: " + iterator1.next().value);
+    for (let i= 0; i< totalTypes.size; i++){
+        console.log("tipo de Pokemon: " + iterator1.next().value);
+        if (iterator1.next().value){
+            console.log()
+        }
+    }
 }
 
+const searchByName = ()=>{
+    let name= document.getElementById("searchName");
+    let nameValue= name.value;
+    const pokemon = getPokemonsByName(pokemons, nameValue);
+    document.getElementById("nombrePokemon").innerHTML = pokemon.egg;
+    
+}
 
-console.log("listado tipos "+ totalTypes);
+document.getElementById("navbardrop").addEventListener("click", searchTypes);
+document.getElementById("search").addEventListener("click", searchByName)
+
+
 
 console.log(getPokemonsByName(pokemons, "eevee")); //buscando un nombre
-console.log(getPokemonsByType(pokemons, "water")); //buscando un tipo
+console.log(getPokemonsByType(pokemons, "poison")); //buscando un tipo
+console.log("imprimire el numero de pokemon: "+ pokemons.num);
 

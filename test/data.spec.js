@@ -1,23 +1,15 @@
-import { example, anotherExample } from '../src/data.js';
+import { getPokemonsByName } from '../src/data.js';
 
 
-describe('example', () => {
-  it('is a function', () => {
-    expect(typeof example).toBe('function');
+
+describe('getPokemonsByName', () => {
+  it('deberia ser una funcion', () => {
+    expect(typeof getPokemonsByName).toBe('function');
   });
 
-  it('returns `example`', () => {
-    expect(example()).toBe('example');
-  });
-});
-
-
-describe('anotherExample', () => {
-  it('is a function', () => {
-    expect(typeof anotherExample).toBe('function');
-  });
-
-  it('returns `anotherExample`', () => {
-    expect(anotherExample()).toBe('OMG');
+  it('deberia retornar null para nombre vacio', () => {
+    expect(getPokemonsByName()).toBe('null');
   });
 });
+
+
