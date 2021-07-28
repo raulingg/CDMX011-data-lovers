@@ -1,20 +1,63 @@
 body {
+  display: flex;
+  flex-wrap: wrap;
   height: 0%;
   background-color: #FBF8E1;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Cabin', sans-serif;
+  min-height: 100vh;
+}
+
+.description{
+  margin-top: 10px;
 }
 
 h1 {
   color: black;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  font-size: 20 px;
+  font-family: 'Julius Sans One', sans-serif;
+  font-size: 70px;
+  text-align-last: center;
 }
-p {
-  color: black;
+.page_name{
+  margin-top: 85px;
+}
+.page_name{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content:center;
+  align-items: center;
+}
+.logo {
+  width:150px;
+  height: 150px;
+  padding: 0px;
 }
 
+.intro{
+  text-align: center;
+  font-family:'Baloo Chettan 2', cursive;
+  font-size: 30px;
+}
+.collage{
+  display: flex;
+  justify-content: center;
+  
+}
+.welcome{
+  display: flex;
+  justify-content: center;
+  margin-top: 0px;
+  height: auto;
+  width: 100%;
+  justify-items: center;
+}
+.info{
+  font-family:'Baloo Chettan 2', cursive;
+  font-size:20px;
+  text-align: justify;
+  padding-left: 10px;
+}
 .nav_main {
   width: 100%;
   max-width: 850 px;
@@ -23,7 +66,7 @@ p {
 
 .nav_header {
   display: flex;
-  justify-content:right;
+  justify-content: flex-end;
   align-items: center;
   font-family: 'Cabin', sans-serif;
   font-size: 18px;
@@ -42,6 +85,8 @@ p {
   padding: 2rem 0;
 }
 .navigation ul {
+  display: flex;
+  justify-content: flex-end;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -61,6 +106,10 @@ p {
   background-color: #f2f3f2ce;
   box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
 }
+
+/*.contenido {
+  min-height: calc(100vh -58px - 51px);
+}*/
 
 .allCards {
   display: flex;
@@ -116,8 +165,10 @@ img {
   font-weight:lighter;
   padding-bottom: 8px;
 }
-footer {
-  position: fixed;
+
+
+/*footer {
+  align-self: flex-end;
   background: linear-gradient(
     180deg,
     #39b5af 0%,
@@ -128,7 +179,8 @@ footer {
   left: 0;
   bottom: 0;
   width: 100%;
-  padding-top: 10px;
+  height: 51px;
+  padding-top: 0px;
   margin: 0 auto;
 }
-
+*/
