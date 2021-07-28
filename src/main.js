@@ -2,12 +2,15 @@ import {searchByTeam} from './data.js';
 import{searchBySport} from './data.js';
 import{searchByGender}from'./data.js';
 import{searchByMedal} from'./data.js';
+console.log(searchByTeam);
 //import athletes from './data/athletes/athletes.js';
 //import data from './data/athletes/athletes.js';
 
 /*let titulo = document.getElementById("olympics-title");
 */
 const firstPage= document.querySelector(".reseña");
+let ocultarPaginacion = document.querySelector("#pagination");
+//const  cardSection= document.querySelector(".allCards");
 let divAthletes =  document.getElementById("athletes");
 let selectPais = document.getElementById("pais")
 let selectSport= document.getElementById("deportes")
@@ -16,8 +19,9 @@ let selectMedal = document.getElementById("medallas")
 let pagination = document.getElementById("pagination");
 let avatar = 12;
 let currentPage = 1;
-console.log("firstpage" + firstPage);
+//console.log("firstpage" + firstPage);
 showSuccess(false);
+
 document.querySelector(".button").addEventListener("click", reset);
 
 selectPais.addEventListener("change",function(){
@@ -73,8 +77,7 @@ selectPais.addEventListener("change",function(){
         if (items.length== 0){
             items = searchByGender(items,genero, true);
         }
-        items= searchByGender(items, genero, false);
-        
+        items= searchByGender(items, genero, false);        
     }
 
     if(medal != "Selecciona una medalla" ){
@@ -107,9 +110,16 @@ function setupPagination (items, wrapper,avatarPerPage){
 }
 function showSuccess(esconder) {
     firstPage.hidden = esconder;
+    ocultarPaginacion.hidden= !esconder;
   }
   
 function reset(){
+    selectPais.value = "Selecciona un pais" ;
+    selectSport.value = "Selecciona una Disciplina";
+    selectGender.value = "Selecciona el género";
+    selectMedal.value = "Selecciona una medalla" ;
+    divAthletes.innerHTML="";
+    showSuccess(false);
     
 }
 function DisplayList (items, divAthletes, avatarPerPage, page) {
@@ -152,22 +162,28 @@ function obtenerElementoAtleta(atleta){
         aName.classList.add("name_athlet");
     const aSport = document.createElement("div");
         aSport.innerHTML = "Deporte: " + atleta.sport;
+        aSport.classList.add("dato");
     const aTeam = document.createElement("div");
         aTeam.innerHTML = "Pais: " + atleta.team + " ("+ atleta.noc + ")";
         aTeam.classList.add("team_athlet");
     const aEvent = document.createElement("div");
         aEvent.innerHTML = "Evento: " + atleta.event;
+        aEvent.classList.add("dato");
     const aMedal = document.createElement("div");
         aMedal.innerHTML = "Medalla: " + atleta.medal;
         aMedal.classList.add("medall");
     const aGender = document.createElement("div");
         aGender.innerHTML = "Genero: " + atleta.gender;
+        aGender.classList.add("dato");
     const aAge = document.createElement("div");
         aAge.innerHTML = "Edad: " + atleta.age + " años";
+        aAge.classList.add("dato");
     const aWeight = document.createElement("div");
         aWeight.innerHTML = "Peso: " + atleta.weight + " kg";
+        aWeight.classList.add("dato");
     const aHeight = document.createElement("div");
-        aHeight.innerHTML = "Estatura: " + atleta.height + " cm";    
+        aHeight.innerHTML = "Estatura: " + atleta.height + " cm"; 
+        aHeight.classList.add("dato");   
     div.appendChild(aName);
     div.appendChild(aTeam);
     div.appendChild(aMedal);

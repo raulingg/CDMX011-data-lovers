@@ -106,7 +106,55 @@ h1 {
   background-color: #f2f3f2ce;
   box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
 }
+.menu{
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: baseline;
+}
+.menu select{
+  height: auto;
+  width: 100%;
+  font-family: 'Baloo Chettan 2', cursive;
+  font-size: 20px;
+  margin-top: 30px;
+  align-content: center;
+}
+.button{
+  height: auto;
+  width: 100%;
+  font-family: 'Baloo Chettan 2', cursive;
+  font-size: 20px;
+  margin-top: 30px;
+  align-content: center;
+}
+.botoncito{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin-top: 10px;
 
+}
+#btn{
+  padding: 3px;
+  background-color: rgb(203, 223, 222);
+  font-size: 18px;
+  display: inline;
+  outline: dimgrey;
+  border-width: 2px;
+  border-style: outset;
+  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  transition: all 0.4s linear;
+  border-radius: 2px;
+}
+#btn :hover{
+  background-color:darkgrey;
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
 /*.contenido {
   min-height: calc(100vh -58px - 51px);
 }*/
@@ -120,7 +168,7 @@ h1 {
 
 .collection {
   width: 300px;
-  height: 500px;
+  height: 520px;
   padding: 30px;
   margin: 20px;
   align-content: center;
@@ -136,7 +184,11 @@ h1 {
   z-index: -3;
 
 }
-
+.dato{
+  font-size: 16px;
+  padding-bottom: 0px;
+  font-family: 'Baloo Chettan 2', cursive;
+}
 img {
   width: 140px;
   height: 140px;
@@ -149,22 +201,52 @@ img {
   font-stretch: semi-expanded;
   font-size: 30px;
   text-transform: uppercase;
-  padding-bottom: 8px;
+  padding-bottom: 3px;
 }
 .team_athlet{
   font-family:'Pathway Gothic One', sans-serif;
   font-size: 20px;
+  font-weight: 600;
   border:rgb(12, 12, 12);
   float:right;
   margin: 8px;
+
 }
 .medall{
   font-family:'Pathway Gothic One', sans-serif;
   font-size: 20px;
   margin: 8px;
-  font-weight:lighter;
-  padding-bottom: 8px;
+  font-weight:600;
+  padding-bottom: 3px;
 }
+
+
+@media screen and (min-width: 360px) and (max-width: 640px) { 
+  .menu select{
+     font-size: 10px;
+  }
+  .button{
+    font-size: 10px;
+   }
+  h1 {
+    font-size: 30px;
+   }
+  .logo {
+    width:75px;
+    height: 75px;
+  }
+  .nav_header {
+    font-size: 11px;
+
+  }
+  .intro{
+    font-size: 15px;
+  }
+  .info{
+    font-size: 12px;
+  }
+}
+
 
 
 /*footer {
