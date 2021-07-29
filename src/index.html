@@ -18,7 +18,7 @@
     <div id="root"></div>
       <div class="jumbotron text-center" style="margin-bottom:0"> <!--esto debe estar en un header-->
         <h2>Pokemón</h2>
-        <h3 style="color:rgb(51, 51, 201);">Lidia & Bell</h3>
+        <h3 style="color:rgb(51, 51, 201);">Lidia [&] Bell</h3>
     
       </div>
   
@@ -32,10 +32,14 @@
           <ul class="navbar-nav">
             <!-- Dropdown -->
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" align="justify-content-center">Tipos de Pokémon</a>
+              <select id="tipodepokemon"></select>
               
             </li>
-            <label for="unpokemon" id="nombrePokemon">Riachu</label>
+            <li class="nav-item dropdown">
+              <select id="dropdownPokemon"></select>
+              
+            </li>
+            
             <input type="text" placeholder="Buscar por nombre" id="searchName"></input>
             <button id="search" class="add_botom">
               <ion-icon name="search-outline"></ion-icon>
@@ -60,90 +64,29 @@
             <i class="flaticon-act"></i>
           </span>
           <div class="desc">
-            <h3 id="001">Bulbasaur</h3>
+            <h3 id="pokemonInicio">Bulbasaur</h3>
             
             <div>
-              <img onmouseover="bigImg(this)" onmouseout="normalImg(this)" border="0" src="imgs/001.png" alt="pikachu"
-              class="imagenesServicios">
+              <img src="imgs/001.png" alt="bulbasaur"
+              class="imagenesServicios" id="imgPokemon">
+              
             </div>
             <br>
-            <button class="btn btn-primary">Ver más info</button>
+            
           </div>
         </div>
       </div>
-      <!---fICHA MATERIA 2-->
+      
+      <!---info del pokemon-->
       <div class="col-md-4 text-center animate-box fadeInUp animated-fast">
         <div class="contenedorPokemon">
           <span class="icon">
             <i class="flaticon-act"></i>
           </span>
-          <div class="desc">
-            <h3 id="segundoPokemon">Charmander</h3>
-            <div>
-              <img src="imgs/004.png" class="imagenesServicios">
-            </div>
-            <br>
-            <button class="btn btn-primary">Ver más info</button>
-          </div>
-        </div>
-      </div>
-      <!--Divorcio-->
-      <div class="col-md-4 text-center animate-box fadeInUp animated-fast">
-        <div class="contenedorPokemon">
-          <span class="icon">
-            <i class="flaticon-act"></i>
-          </span>
-          <div class="desc">
-            <h3 id="Squirtle"></a>Squirtle</h3>
-            <div>
-              <img onmouseover="bigImg(this)" onmouseout="normalImg(this)" border="0" src="imgs/007.png" alt="G" class="imagenesServicios">
-            </div>
-            <br>
-            <button class="btn btn-primary">Ver más info</button>
-          </div>
-        </div>
-      </div>
-      <!---Testamento-->
-      <div class="col-md-4 text-center animate-box fadeInUp animated-fast">
-        <div class="contenedorPokemon">
-          <span class="icon">
-            <i class="flaticon-act"></i>
-          </span>
-          <div class="desc">
-            <h3 id="009"> Blastoise</h3>
-            <div>
-              <img onmouseover="bigImg(this)" onmouseout="normalImg(this)" border="0" src="imgs/009.png" alt="Pok1" class="imagenesServicios">
-            </div>
-            <br>
-            <button class="btn btn-primary">Ver más info</button>
-          </div>
-        </div>
-      </div>
-      <!---fICHA MATERIA 3-->
-      <div class="col-md-4 text-center animate-box fadeInUp animated-fast">
-        <div class="contenedorPokemon">
-          <span class="icon">
-            <i class="flaticon-act"></i>
-          </span>
-          <div class="desc">
-            <h3 id="009">Raticate </h3>
-            <div>
-              <img onmouseover="bigImg(this)" onmouseout="normalImg(this)" border="0" src="imgs/020.png" alt="Pok1" class="imagenesServicios">
-            </div>
-            <br>
-            <button class="btn btn-primary">Ver más info</button>
-          </div>
-        </div>
-      </div>
-      <!---fICHA MATERIA 3-->
-      <div class="col-md-4 text-center animate-box fadeInUp animated-fast">
-        <div class="contenedorPokemon">
-          <span class="icon">
-            <i class="flaticon-act"></i>
-          </span>
-  
+          <label for="unpokemon" id="numPokemon"> 001</label>
+          <p id="detailsPokemon">Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun's rays, the seed grows progressively larger.</p>
           <br>
-          <button class="btn btn-primary" id="otherPage">Ligas alternativas</button>
+          
           
         </div>
       </div>

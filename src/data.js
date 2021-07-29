@@ -12,8 +12,9 @@ export const getPokemonsByName = (data, selection) => {
 };
 
 //cuantos tipos de pokemon
-export const getAllTypes = (data,types) =>{
-
+export const getAllTypes = (data) =>{
+  /* eslint no-undef: "off", curly: "error" */
+  let types = new Map();
   
   for (let i= 0; i < data.length; i++){
     let pokemon = data[i];
@@ -29,13 +30,24 @@ export const getAllTypes = (data,types) =>{
 
 //buscara el tipo de pokemon
 export const getPokemonsByType = (data, pokemonType) => {
+  let pokemonsType =[];
+
   for (let i=0; i < data.length; i++){
-    console.log(data[i].type + " " + pokemonType); //esta imprimiendo los pokemones que contengan el mismo tipo
-    if(data[i].type === pokemonType){
-      return data[i];
+    //console.log(data[i].type + " " + pokemonType); //esta imprimiendo los pokemones que contengan el mismo tipo
+    let pokemon = data[i];
+    let pokemonTypes = pokemon.type;
+    for(let j= 0; j< pokemonTypes.length; j++){
+      if (pokemonTypes[j] === pokemonType){
+        pokemonsType.push(pokemon);
+      }
     }
+    /*if(data[i].type === pokemonType){
+      //console.log("grupo de tipo "+data[i]);
+      return data[i];
+    
+    }*/
   }
-  return null;
+  return pokemonsType;
 };
 
 /*export const getPokemonById = (data, pokemonId)=> {
