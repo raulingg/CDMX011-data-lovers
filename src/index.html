@@ -1,12 +1,42 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Data Lovers</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script src="main.js" type="module"></script>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rick & Morty</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="document-wrapper">
+  <header>
+    <img src="rickmortylogo.png" id="logo" />
+  </header>
+  <nav>
+    <div class="filterBy">
+      <label>Filter by:</label>
+      <select name="Filter" id="filter">
+        <option value="select-one">Select an option</option>
+        <option value="genderM">Male</option>
+        <option value="genderF">Female</option>
+        <option value="genderU">Unknown</option>
+        <option value="statusA">Alive</option>
+        <option value="statusD">Dead</option>
+      </select>
+    </div>
+    <div class="sort-select">
+      <label>Sort name by:</label>
+      <select name="Sort" id="sort">
+        <option value="select-one">Select an option</option>
+        <option value="az">A-Z</option>
+        <option value="za">Z-A</option>
+      </select>
+  </nav>
+  <div id="root"></div>
+  <script src="data.js" type="module"></script>
+  <script src="main.js" type="module"></script>
+  </div>
+</body>
+
 </html>

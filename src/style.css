@@ -1,0 +1,28 @@
+
+.document-wrapper {
+  display: grid;
+  grid-template: repeat(auto-fill, 80px) / repeat(5, 1fr);
+  gap: 1rem;
+  padding: 3rem;
+}
+
+header {
+  grid-column: 1 / 2;
+}
+
+#logo {
+  width: 250px;
+  padding-bottom: 20px;
+}
+
+nav {
+  grid-column: 3 / -1;
+}
+
+#root {
+  grid-column: 2 / -1;
+}
+
+.card{
+  background-color: ;
+}
