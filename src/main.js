@@ -37,6 +37,8 @@ const fillTypeDropdown = (pokemons) =>{
 //tiene que mandar los pokemon que pertenecen al tipo del primer dropdown
 
 const fillPokemonDropdown=(pokemons)=>{
+    console.log("aqui");
+    console.log(pokemons);
     document.getElementById("dropdownPokemon").options.length = 0; //limpia dropdown
     let dpp = document.getElementById("dropdownPokemon");
     pokemons.forEach(element => {

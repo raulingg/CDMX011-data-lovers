@@ -3,114 +3,68 @@
   <head>
     <meta charset="utf-8">
 	  <meta name="viewport" content="width=device-width, initial-scale=1">
-	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-	  <link href="fontawsome/css/all.css">
-	  <link href="animate.css">
+	  
 	  <link rel="stylesheet" type="text/css" href="style.css">
     <title>Data Lover Bell </title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
 
-    <div id="root"></div>
-      <div class="jumbotron text-center" style="margin-bottom:0"> <!--esto debe estar en un header-->
-        <h2>Pokemón</h2>
-        <h3 style="color:rgb(51, 51, 201);">Lidia [&] Bell</h3>
     
-      </div>
+    <div class="header"> <!--esto debe estar en un header-->
+      <h2>Pokemón</h2>
+      <h4>Lidia [&] Bell</h4>
   
-      <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <a class="navbar-brand" href="index.html">Inicio</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+    </div>
 
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
-          <ul class="navbar-nav">
-            <!-- Dropdown -->
-            <li class="nav-item dropdown">
-              <select id="tipodepokemon"></select>
-              
-            </li>
-            <li class="nav-item dropdown">
-              <select id="dropdownPokemon"></select>
-              
-            </li>
+    <div class="navbar">
+      <a href="index.html">Inicio</a>
+      <!-- Dropdown -->
+      <h3>Buscar por tipo
+        <select id="tipodepokemon"></select>
+      </h3>
+      <h3> Elige tu pokemon
+        <select id="dropdownPokemon"></select>
+      </h3>
             
-            <input type="text" placeholder="Buscar por nombre" id="searchName"></input>
-            <button id="search" class="add_botom">
-              <ion-icon name="search-outline"></ion-icon>
-            </button>
-            
-
-          </ul>
+      <input type="text" placeholder="Buscar por nombre" id="searchName"></input>
+      <button id="search" class="add_botom">
+        <ion-icon name="search-outline"></ion-icon>
+      </button>
+    </div>
+    
+    <!--the flexible grid "content"-->
+    <div class="row"> 
+      <div class="side">
+        <h2 id="pokemonInicio">Bulbasaur</h2>
+        <div>
+          <img src="imgs/001.png" alt="" id="imgPokemon">
         </div>
-      </nav>
-  
-      <div class="container" style="margin-top:30px"> <!--esto separa los cuadros de pokemon, hay que modificar el formato para hacer contenedores que tengan la misma medida-->
-        <div class="row"></div>
+        <p>some text about</p>
       </div>
-  </div>
-  
-  
-  <div class="container ">
-    <div class="row">
-      <div class="col-md-4 text-center animate-box fadeInUp animated-fast">
-        <div class="contenedorPokemon">
-          <span class="icon">
-            <i class="flaticon-act"></i>
-          </span>
-          <div class="desc">
-            <h3 id="pokemonInicio">Bulbasaur</h3>
-            
-            <div>
-              <img src="imgs/001.png" alt="bulbasaur"
-              class="imagenesServicios" id="imgPokemon">
-              
-            </div>
-            <br>
+      <div class="main">
+        <h2>detalles del pokemon</h2>
+        <div class="fakeimg" style="height:200px">
+          
+          <div class="contenedorPokemon">
+            <span class="icon">
+              <i class="flaticon-act"></i>
+            </span>
+            <label for="unpokemon" id="numPokemon"> 001</label>
+            <p id="detailsPokemon">Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun's rays, the seed grows progressively larger.</p>
             
           </div>
         </div>
       </div>
-      
-      <!---info del pokemon-->
-      <div class="col-md-4 text-center animate-box fadeInUp animated-fast">
-        <div class="contenedorPokemon">
-          <span class="icon">
-            <i class="flaticon-act"></i>
-          </span>
-          <label for="unpokemon" id="numPokemon"> 001</label>
-          <p id="detailsPokemon">Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun's rays, the seed grows progressively larger.</p>
-          <br>
-          
-          
-        </div>
-      </div>
-  
     </div>
-  </div>
   
-  <footer>
-  
-  <div class="jumbotron text-left" style="margin-bottom:0">
-    <ul class="nav justify-content-center">
-        <li class="nav-item">
-            <!--<a class="nav-link red-social" href="#"> <img src= "imgs/whats.png" width="20" height="20"> Whats up</a>-->
-        </li>
-        <li class="nav-item">
-            <!--<a class="nav-link red-social" href="http:abogadopalma@gmail.com"> <img src="imgs/gmailLogo.png" width="20" height="20"> Correo  </a>-->
-        </li>
-  
-    </ul>
-  
-  <div class="scrollup left"><i class="fas fa-angle-up"></i></div>
-  </div>
-  </footer>
+    
     <script src="main.js" type="module"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <footer>
+      <div class="footer">
+        <h2>footer</h2>
+      </div>
+    </footer>
   </body>
 </html>
