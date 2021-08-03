@@ -5,22 +5,8 @@ import data from './data/pokemon/pokemon.js';
 
 //sacar arreglo de pokemons y lo pone en pokemons
 const pokemons = data.pokemon;
-//console.log(pokemons);//total de pokemon(todos)
 
-//enlista tipos
-const searchTypes =()=>{
-    /* eslint no-undef: "off", curly: "error" */
-    let totalTypes = new Map();
-    totalTypes = getAllTypes(pokemons, totalTypes);
-    const iterator1 = totalTypes.keys();
-
-    for (let i= 0; i< totalTypes.size; i++){
-        console.log("tipo de Pokemon: " + iterator1.next().value);
-        if (iterator1.next().value){
-           
-        }
-    }
-}
+//Asigna los tipos de pokemon
 const fillTypeDropdown = (pokemons) =>{
     let totalTypes = getAllTypes(pokemons);
     let dp= document.getElementById("tipodepokemon");
@@ -34,47 +20,56 @@ const fillTypeDropdown = (pokemons) =>{
     }
     
 }
-//tiene que mandar los pokemon que pertenecen al tipo del primer dropdown
 
+//mandar los pokemon que pertenecen al tipo del primer dropdown
 const fillPokemonDropdown=(pokemons)=>{
-    console.log("aqui");
+    console.log("aqui estoy mandando los pokemon del tipo seleccionado");
     console.log(pokemons);
     document.getElementById("dropdownPokemon").options.length = 0; //limpia dropdown
     let dpp = document.getElementById("dropdownPokemon");
     pokemons.forEach(element => {
         let option = document.createElement("OPTION");
-        option.innerHTML = element.num + ":"+element.name;
+        option.innerHTML = element.name;
         dpp.options.add(option);
     });//console.log(element.num+":"+element.name));
+    
 }
 
-//esta buscando el nombre que ingreso el usuario y cambia segun el nombre del pokemon
-const searchByName = ()=>{
+//esta mostrando el pokemon seleccionado/buscado
+const showPokemon = (pokemon) =>{
+    console.log("chido "+pokemon);
+    document.getElementById("pokemonInicio").innerHTML = pokemon.name;
+    document.getElementById("types-id").innerHTML= pokemon.type;
+    document.getElementById("imgPokemon").src = pokemon.img;
+    document.getElementById("numPokemon").innerHTML = pokemon.num;
+    document.getElementById("detailsPokemon").innerHTML = pokemon.about; 
+}
+
+//muestra los tipos de pokemon y el primer pokemon de ese grupo
+document.getElementById("tipodepokemon").addEventListener("change",(e)=>{
+    let p = getPokemonsByType(pokemons,e.target.value);
+    fillPokemonDropdown(p);
+    showPokemon(p[0]);
+})
+
+//listado de pokemones del tipo seleccionado
+document.getElementById("dropdownPokemon").addEventListener("change",(e)=>{
+    let pSelected = getPokemonsByName(pokemons,e.target.value);
+    showPokemon(pSelected);
+})
+
+//busqueda por nombre
+document.getElementById("search").addEventListener("click",(e)=>{
     let name= document.getElementById("searchName");
     let nameValue= name.value;
     const pokemon = getPokemonsByName(pokemons, nameValue);
-    document.getElementById("pokemonInicio").innerHTML = pokemon.name;
-    document.getElementById("imgPokemon").src = pokemon.img;
-    document.getElementById("numPokemon").innerHTML = pokemon.num;
-    document.getElementById("detailsPokemon").innerHTML = pokemon.about;
-    
-}
-fillTypeDropdown(pokemons);
-fillPokemonDropdown(pokemons);
-
-
-//document.getElementById("navbardrop").addEventListener("click", searchTypes);
-document.getElementById("search").addEventListener("click", searchByName)
-console.log(document.getElementById("tipodepokemon"))
-/*document.getElementById("dropdownPokemon").addEventListener("change",(e)=>{
-    console.log(getPokemonsByType(pokemons,e.target.value))
-})*/
-
-document.getElementById("tipodepokemon").addEventListener("change",(e)=>{
-    fillPokemonDropdown(getPokemonsByType(pokemons,e.target.value))
+    showPokemon(pokemon);
 })
 
-
+//las funciones que cargan al inicio de la pagina deben ir al ultimo del archivo
+fillTypeDropdown(pokemons);
+fillPokemonDropdown(pokemons);
+showPokemon(pokemons[0]);
 /*
 console.log(getPokemonsByName(pokemons, "eevee")); //buscando un nombre
 console.log(getPokemonsByType(pokemons, "poison")); //buscando un tipo

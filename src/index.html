@@ -22,11 +22,13 @@
       <!-- Dropdown -->
       <h3>Buscar por tipo
         <select id="tipodepokemon"></select>
-      </h3>
+      </h3> 
+      </br>
+      
       <h3> Elige tu pokemon
         <select id="dropdownPokemon"></select>
       </h3>
-            
+      </br>      
       <input type="text" placeholder="Buscar por nombre" id="searchName"></input>
       <button id="search" class="add_botom">
         <ion-icon name="search-outline"></ion-icon>
@@ -36,22 +38,25 @@
     <!--the flexible grid "content"-->
     <div class="row"> 
       <div class="side">
-        <h2 id="pokemonInicio">Bulbasaur</h2>
+        <h2 id="pokemonInicio"></h2>
         <div>
-          <img src="imgs/001.png" alt="" id="imgPokemon">
+          <img src="" alt="" id="imgPokemon">
         </div>
-        <p>some text about</p>
+        <div>
+          <h4 id="types-id"></h4>
+        </div>
+        
       </div>
       <div class="main">
-        <h2>detalles del pokemon</h2>
+        <h2>Detalles del pokemon</h2>
         <div class="fakeimg" style="height:200px">
           
           <div class="contenedorPokemon">
             <span class="icon">
               <i class="flaticon-act"></i>
             </span>
-            <label for="unpokemon" id="numPokemon"> 001</label>
-            <p id="detailsPokemon">Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun's rays, the seed grows progressively larger.</p>
+            <label for="unpokemon" id="numPokemon"> </label>
+            <p id="detailsPokemon"></p>
             
           </div>
         </div>
@@ -61,10 +66,10 @@
     
     <script src="main.js" type="module"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <footer>
+    <!--<footer class="footer">
       <div class="footer">
         <h2>footer</h2>
       </div>
-    </footer>
+    </footer>-->
   </body>
 </html>
