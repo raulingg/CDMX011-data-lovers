@@ -1,71 +1,66 @@
-// import { name } from './data.js'
 import data from './data/rickandmorty/rickandmorty.js';
+import { filterByGenderM, filterByGenderF, filterByGenderU, filterByStatusA, filterByStatusD } from './data.js';
+//import { sortData } from './data.js';
 
 const characters = data.results;
-let screen = "";
 
-characters.forEach(char => {
-  if (char.id <= 5) {
-    screen += characterHTML(char);
-  }
-})
-
-function characterHTML(info) {
-  return `<section class="card"> 
-    <img id= "imgn" src="${info.image}">
-    <h3> ${info.name} </h3>
-    <p>Status: ${info.status}</p>
-    <p>Species: ${info.species}</p>
-    <p>Gender: ${info.gender}</p>
-    <p>Origin: ${info.origin.name}</p>
-    <p>Location: ${info.location.name}</p>
-    </section> `;
+window.onload = function printData() {
+  let firstFive = "";
+  characters.forEach(char => {
+    if (char.id <= 5) {
+      firstFive += characterHTML(char);
+      document.getElementById("root").innerHTML = firstFive;
+    }
+  })
 }
 
-//parent element
-document.getElementById("root").innerHTML = screen;
+function characterHTML(info) {
+  return `<div class="card"> 
+    <img id= "imgn" src="${info.image}">
+    <dl id="card_content">
+      <dt>${info.name}</dt>
+      <dd><b>Status:</b> ${info.status}</dd>
+      <dd><b>Species:</b> ${info.species}</dd>
+      <dd><b>Gender:</b> ${info.gender}</dd>
+      <dd><b>Origin:</b> ${info.origin.name}</dd>
+      <dd><b>Location:</b> ${info.location.name}</dd></dl>
+    </div> `;
+}
 
-//  Función que hace el Filtrado
+
+//  Función que hace el Filtrado y ordenado
 const selectFilter = document.getElementById("filter");
 selectFilter.addEventListener("change", (event) => {
 
-  
-  let filterData;
-
   // Filtrar por Genero Masculino
   if (event.target.value == "genderM") {
+    let screen = "";
+    const maleGender = filterByGenderM();
 
-    hidden();
 
-    filterData = characters.filter(gender => gender.gender == "Male")
-    console.table(filterData);
-    
-    filterData.forEach(char => {
+    maleGender.forEach(char => {
       screen += characterHTML(char);
     })
     document.getElementById("root").innerHTML = screen;
-    
   }
 
   // Filtrar por Genero Femeninos
   else if (event.target.value == "genderF") {
+    let screen = "";
+    const femaleGender = filterByGenderF();
 
-    filterData = characters.filter(gender => gender.gender == "Female")
-    console.table(filterData);
-
-    filterData.forEach(char => {
+    femaleGender.forEach(char => {
       screen += characterHTML(char);
     })
     document.getElementById("root").innerHTML = screen;
-    
   }
 
   //Filtrar por genero desconocido
   else if (event.target.value == "genderU") {
-    filterData = characters.filter(gender => gender.gender == "unknown")
-    console.table(filterData);
+    let screen = "";
+    const unknownGender = filterByGenderU();
 
-    filterData.forEach(char => {
+    unknownGender.forEach(char => {
       screen += characterHTML(char);
     })
     document.getElementById("root").innerHTML = screen;
@@ -73,11 +68,10 @@ selectFilter.addEventListener("change", (event) => {
 
   // Filtrar por Estado Vivo
   else if (event.target.value == "statusA") {
+    let screen = "";
+    const statusAlive = filterByStatusA();
 
-    filterData = characters.filter(status => status.status == "Alive")
-    console.table(filterData);
-
-    filterData.forEach(char => {
+    statusAlive.forEach(char => {
       screen += characterHTML(char);
     })
     document.getElementById("root").innerHTML = screen;
@@ -85,43 +79,55 @@ selectFilter.addEventListener("change", (event) => {
 
   // Filtrar por Estado Muerto
   else if (event.target.value == "statusD") {
-    filterData = characters.filter(status => status.status == "Dead")
-    console.table(filterData);
+    let screen = "";
+    const statusDead = filterByStatusD();
 
-    filterData.forEach(char => {
+    statusDead.forEach(char => {
       screen += characterHTML(char);
     })
     document.getElementById("root").innerHTML = screen;
+  }
+
+  // Mostrar todos los personajes
+  else if (event.target.value == "allCharacters") {
+    let screen = "";
+    characters.forEach(char => {
+      screen += characterHTML(char);
+      document.getElementById("root").innerHTML = screen;
+    })
   }
 });
 
 
 
 // Acomodar por: 
+/*const sortC = document.getElementById("sort");
 
- /* const sortBy = document.getElementById("sort");
-sortBy.addEventListener("change", (event) => {
+sortC.addEventListener("change", (event) => {
 
-let sortData;
+  let sortBy;
 
-if(event.target.value == "az") {
-// Acomodar por A -Z
+  if (event.target.value === "az") {
+    let screen = "";
+    sortBy = "az";
 
-sortData = characters.sort((a, b) => {
-  return a.name < b.name ? -1 : 1;
-});
 
-sortData.forEach(char => {
-  screen += characterHTML(char);
-   })
-document.getElementById("root").innerHTML = screen;
-}
+    sortData(characters, sortBy).forEach(char => {
+      screen += characterHTML(char);
+      document.getElementById("root").innerHTML = screen();
+    })
 
-}); */
-
-function hidden() {
-  const dom = document.getElementById("root");
-  while (dom.firstChild) {
-    dom.removeChild(dom.firstChild);
   }
-}
+
+  else if (event.target.value == "za") {
+    let screen = "";
+    sortBy = "za";
+    
+
+    sortData(characters, sortBy).forEach(char => {
+      screen += characterHTML(char);
+      document.getElementById("root").innerHTML = screen;
+    })
+  }
+
+});*/

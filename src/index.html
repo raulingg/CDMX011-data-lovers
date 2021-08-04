@@ -6,37 +6,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rick & Morty</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,600;1,300&family=Oswald:wght@600&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <div class="document-wrapper">
+  <div class="logo-filter-sort">
   <header>
     <img src="rickmortylogo.png" id="logo" />
   </header>
   <nav>
-    <div class="filterBy">
-      <label>Filter by:</label>
+      <label><b>Filter by:</b></label>
       <select name="Filter" id="filter">
         <option value="select-one">Select an option</option>
-        <option value="genderM">Male</option>
-        <option value="genderF">Female</option>
-        <option value="genderU">Unknown</option>
-        <option value="statusA">Alive</option>
-        <option value="statusD">Dead</option>
+        <option value="genderM">Gender Male</option>
+        <option value="genderF">Gender Female</option>
+        <option value="genderU">Gender Unknown</option>
+        <option value="statusA">Status Alive</option>
+        <option value="statusD">Status Dead</option>
+        <option value="allCharacters">All Characters</option>
       </select>
-    </div>
-    <div class="sort-select">
-      <label>Sort name by:</label>
+      <label><b>Sort by:</b></label>
       <select name="Sort" id="sort">
         <option value="select-one">Select an option</option>
         <option value="az">A-Z</option>
         <option value="za">Z-A</option>
       </select>
+      <input type="search" id="search" placeholder="Site search..."/>
+      <button>search</button>
+    </div>
   </nav>
+  <div class="cards">
   <div id="root"></div>
+  </div>
   <script src="data.js" type="module"></script>
   <script src="main.js" type="module"></script>
-  </div>
 </body>
 
 </html>
