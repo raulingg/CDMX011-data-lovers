@@ -3,18 +3,18 @@
   <head>
     <meta charset="utf-8">
 	  <meta name="viewport" content="width=device-width, initial-scale=1">
-	  
+
 	  <link rel="stylesheet" type="text/css" href="style.css">
     <title>Data Lover Belem</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
 
-    
+
     <div class="header"> <!--esto debe estar en un header-->
-      <h2>Pokemón</h2>
+      <h2>Pokemón Go</h2>
       <h4>Lidia [&] Bell</h4>
-  
+
     </div>
 
     <div class="navbar">
@@ -22,21 +22,21 @@
       <!-- Dropdown -->
       <h3>Buscar por tipo
         <select id="tipodepokemon"></select>
-      </h3> 
+      </h3>
       </br>
-      
+
       <h3> Elige tu pokemon
         <select id="dropdownPokemon"></select>
       </h3>
-      </br>      
+      </br>
       <input type="text" placeholder="Buscar por nombre" id="searchName"></input>
       <button id="search" class="add_botom">
         <ion-icon name="search-outline"></ion-icon>
       </button>
     </div>
-    
+
     <!--the flexible grid "content"-->
-    <div class="row"> 
+    <div class="row">
       <div class="side">
         <h2 id="pokemonInicio"></h2>
         <div>
@@ -45,25 +45,25 @@
         <div>
           <h4 id="types-id"></h4>
         </div>
-        
+
       </div>
       <div class="main">
         <h2>Detalles del pokemon</h2>
         <div class="fakeimg" style="height:200px">
-          
+
           <div class="contenedorPokemon">
             <span class="icon">
               <i class="flaticon-act"></i>
             </span>
             <label for="unpokemon" id="numPokemon"> </label>
             <p id="detailsPokemon"></p>
-            
+
           </div>
         </div>
       </div>
     </div>
-  
-    
+
+
     <script src="main.js" type="module"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <!--<footer class="footer">
