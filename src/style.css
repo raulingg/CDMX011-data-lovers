@@ -3,12 +3,20 @@ body {
 }
 
 .logo-filter-sort {
-  color: #FFFF;
   display: flex;
-  flex-wrap: row wrap;
+  flex-flow: row wrap;
+  gap: 1rem;
+  color: #FFFF;
   margin: 3rem;
   font-family: 'Open Sans', sans-serif;
   font-size: 12px;
+}
+
+.logo-filter-sort header,
+.logo-filter-sort details,
+.logo-filter-sort input,
+.logo-filter-sort button {
+  margin: 10px;
 }
 
 #logo {
@@ -17,7 +25,6 @@ body {
   padding-bottom: 20px;
   padding-right: 10px;
 }
-
 
 #root {
   display: grid;

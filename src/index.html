@@ -12,20 +12,25 @@
 </head>
 
 <body>
+<nav>
   <div class="logo-filter-sort">
   <header>
     <img src="rickmortylogo.png" id="logo" />
   </header>
-  <nav>
-      <label><b>Filter by:</b></label>
-      <select name="Filter" id="filter">
-        <option value="select-one">Select an option</option>
-        <option value="genderM">Gender Male</option>
-        <option value="genderF">Gender Female</option>
-        <option value="genderU">Gender Unknown</option>
-        <option value="statusA">Status Alive</option>
-        <option value="statusD">Status Dead</option>
-        <option value="allCharacters">All Characters</option>
+    <nav>
+      <label><b>Gender</b></label>
+      <select name="Gender" id="gender">
+        <option>Select an option</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>unknown</option>
+        <option>Genderless</option>
+      </select>
+      <label>Status</label>
+      <select name="Status" id="status">
+        <option>Select an option</option>
+        <option>Alive</option>
+        <option>Dead</option>
       </select>
       <label><b>Sort by:</b></label>
       <select name="Sort" id="sort">
@@ -33,12 +38,12 @@
         <option value="az">A-Z</option>
         <option value="za">Z-A</option>
       </select>
-      <input type="search" id="search" placeholder="Site search..."/>
+      <input type="search" id="search" placeholder="Search..."/>
       <button>search</button>
     </div>
   </nav>
   <div class="cards">
-  <div id="root"></div>
+    <div id="root"></div>
   </div>
   <script src="data.js" type="module"></script>
   <script src="main.js" type="module"></script>
