@@ -1,52 +1,47 @@
-export function filterGender (characters, gender){
-  return characters.filter((gen) => {
-  return gen.gender === gender;
-})
-}
+import data from "./data/rickandmorty/rickandmorty.js";
 
-/* export function searchByTeam(dataX, pais, buscarTodo, datA=data.athletes) {
-  let filterPerTeam;
-  if (buscarTodo) {
-    filterPerTeam = datA.filter(function (atleta) {
-      return atleta.team == pais;
-    });
+export function filterGender (dataF, gender, allCharacters, characters = data.results) {
+  let filterByGender;
+  if (allCharacters) {
+      filterByGender = characters.filter(function (gen){
+        return gen.gender === gender;
+      });
   } else {
-    filterPerTeam = dataX.filter(function (atleta) {
-      return atleta.team == pais;
+    filterByGender = dataF.filter(function (gen){
+      return gen.gender === gender;
+  });
+}
+  console.log(filterByGender);
+  return filterByGender;
+}
+
+
+
+export function filterStatus (dataF, status, allCharacters, characters = data.results) {
+  let filterByStatus;
+  if (allCharacters){
+    filterByStatus = characters.filter(function (stat){
+      return stat.status === status;
     });
+  } 
+  else {
+    filterByStatus = dataF.filter(function (stat){
+  return stat.status == status;
+});
   }
-  console.log(filterPerTeam);
-  return filterPerTeam;*/
-
-
-
-export function filterStat (characters, status){
-  return characters.filter((stat) => {
-  if (stat.status === status){
-    return status;
-  }
-})
+console.log(filterByStatus);
+return filterByStatus;
 }
 
-export function sortBy (filterGender){
-  return filterGender.sort((a, b) => {
-   if (a.name > b.name) {
-     return 1;
-   }
-   else if (a.name < b.name) {
-     return -1;
-   }
-})
+export function sortDe(data){
+  return data.sort((a, b) => {
+    return a.name < b.name ? 1 : -1;
+  })
 }
 
-// export function 
+export function sortAs(data) {
+  return data.sort((a, b) => {
+    return a.name > b.name ? 1 : -1; 
 
- /*export function searchChar (characters) {
-  return characters.filter(name => name.name == "");
+  })
 }
-
-export function searchCha (){
-  for (let i=0; i < nameC.length; i++){
-    
-  }
-} */

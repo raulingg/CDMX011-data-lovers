@@ -9,38 +9,37 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,600;1,300&family=Oswald:wght@600&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 <nav>
-  <div class="logo-filter-sort">
   <header>
     <img src="rickmortylogo.png" id="logo" />
   </header>
-    <nav>
-      <label><b>Gender </b></label>
+    <nav class="menu">
+      <label><b> Filter by: </b></label>
       <select name="Gender" id="gender">
-        <option>Select an option</option>
+        <option>Gender</option>
         <option>Male</option>
         <option>Female</option>
         <option>unknown</option>
         <option>Genderless</option>
       </select>
-      <label>Status</label>
+      
       <select name="Status" id="status">
-        <option>Select an option</option>
+        <option>Status</option>
         <option>Alive</option>
         <option>Dead</option>
+        <option>unknown</option>
       </select>
-      <label><b>Sort </b></label>
+      
       <select name="Sort" id="sort">
-        <option value="select-one">Select an option</option>
-        <option value="az">A-Z</option>
-        <option value="za">Z-A</option>
+        <option value="select-one">Sort</option>
+        <option value="az">asc</option>
+        <option value="za">desc</option>
       </select>
-      <input type="search" id="search" placeholder="Search..." class="search"/>
-      <input type="text" id="search1" placeholder="search" />
-    </div>
+      <input type="text" id="search1" placeholder="&#128269; Search character"  />
   </nav>
   <div class="cards">
     <div id="root"></div>

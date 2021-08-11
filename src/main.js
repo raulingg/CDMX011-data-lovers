@@ -1,32 +1,30 @@
 import data from "./data/rickandmorty/rickandmorty.js";
-import { filterGender/*, searchChar */} from "./data.js";
-import { filterStat } from "./data.js";
-import { sortBy } from "./data.js";
+import { filterGender, filterStatus, sortDe, sortAs } from "./data.js";
+
 
 const characters = data.results;
-let dataUpdate = characters;
+//const personajes = ...data. 
+
 const selectG = document.getElementById("gender");
 const selectS = document.getElementById("status");
 const selectSort = document.getElementById("sort");
-
-/*const nameC = data.results.name; 
-const searchC = document.getElementById("search1").value.toLowerCase();
-*/
+const searchC = document.getElementById("search1");
+const root=document.getElementById("root")
 
 // Pantalla Principal
 window.onload = function printData() {
-  let firstFive = "";
-  characters.forEach((char) => {
+  let firstFiveHTML = "";
+  characters.map((char) => {
     if (char.id <= 5) {
-      firstFive += characterHTML(char);
-      document.getElementById("root").innerHTML = firstFive;
+      firstFiveHTML += characterHTML(char);
+      root.innerHTML = firstFiveHTML;
     }
   });
 };
 
 // Pone en HTML
 function characterHTML(info) {
-  return `<div class="card"> 
+  return `<div class="card">  
     <img id="imgn" src="${info.image}" alt="characters">
     <dl id="card_content">
       <dt>${info.name}</dt>
@@ -38,70 +36,80 @@ function characterHTML(info) {
     </div> `;
 }
 
-// Filtra por Genero
-/* selectG.addEventListener("change", function ()){
-  filtrado()
-  pintar()//sacar y poner enmodo función los leemntos que pcupan para pntar en la pantalla
+selectG.addEventListener("change", filter);
+selectS.addEventListener("change", filter);
+
+selectSort.addEventListener("change", function(e){
+  if(e.target.value == "za"){
+    limpiartodo()
+    let newDataSort = sortDe(characters)
+    print(newDataSort)
+  }else if(e.target.value == "az"){
+    limpiartodo()
+    let newDataSort = sortAs(characters)
+    print (newDataSort)
+  }
+});
+
+
+// Función de imprimir 
+function print(a) {
+  let screen = "";
+  a.map((char) => {
+    screen += characterHTML(char);
+    return document.getElementById("root").innerHTML = screen;
+  });
 }
--definir un arreglo vacio let algo = [];
--definir variable que tenga el valor escojido ej: let genero= selectG.value
--definir un segundo arreglo vacio para medir cuantos arreglos ya tienes let datosprevios= [];
--crear las condicionales para cada tipo de filtrado
--if( genero != "Select an option" ){
-datosPrevios.push("genero");
- if(datosPrevios.length == 1){
-  algo = filterGender (algo, genero, true):
- }
-  else {
-    algo = ilterGender (algo, genero, false):
+
+function limpiartodo(){
+  while(root.firstChild){
+    root.removeChild(root.firstChild)
+  }
+}
+
+// Funcion que cruza filtrados 
+function filter() {
+  let preFilter = [];
+  let gender = selectG.value;
+  let stat = selectS.value;
+  let filteredChar = [];
+
+  if (gender != "Gender") {
+    filteredChar.push("gender");
+    if (filteredChar.length == 1) {
+      limpiartodo();
+      preFilter = filterGender(preFilter, gender, true);
+      print(preFilter);
+    }
+    else {
+      limpiartodo();
+      preFilter = filterGender(preFilter, gender, false);
+      print(preFilter);
+    }
   }
 
-}
-*/
+  if (stat != "Status") {
+    filteredChar.push("status");
+    if (filteredChar.length == 1) {
+      limpiartodo();
+      preFilter = filterStatus(preFilter, stat, true);
+      print(preFilter);
+    }
+    else {
+      limpiartodo();
+      preFilter = filterStatus(preFilter, stat, false);
+      print(preFilter);
+    }
+  }
+  }
 
-selectG.addEventListener("change", function (e) {
-  dataUpdate = characters;
-  const filterG = filterGender(dataUpdate, e.target.value);
-  let screen = "";
-  filterG.forEach((char) => {
-    screen += characterHTML(char);
-  });
-  document.getElementById("root").innerHTML = screen;
-  dataUpdate = filterG;
+  // Buscador de Personajes
+  searchC.addEventListener("keyup", (e) => {
+    limpiartodo();
+const search = e.target.value.toLowerCase();
+const charact = characters.filter((results) => {
+  return results.name.toLowerCase().includes(search); 
 });
-
-
-
-//Filtro status
-selectS.addEventListener("change", function (e) {
-  dataUpdate = characters;
-  const filterS = filterStat(dataUpdate, e.target.value);
-  let screen = "";
-  filterS.forEach((char) => {
-    screen += characterHTML(char);
+  print(charact);
   });
-  document.getElementById("root").innerHTML = screen;
 
-});
-
-//a-z
-selectSort.addEventListener("change", function (e) {
-  dataUpdate = characters;
-  const sortB = sortBy(dataUpdate, e.target.value);
-  let screen = "";
-  sortB.forEach((char) => {
-    screen += characterHTML(char);
-  });
-  document.getElementById("root").innerHTML = screen;
-  dataUpdate = sortB;
-});
-
-/* //Busqueda por personaje
-document.getElementById("search").addEventListener("click", () => {
-  const searchInput = document.getElementById("search").value;
-  console.log(searchInput)
-  let screen = "";
-  
-
-  });
-  document.getElementById("root").innerHTML = screen;*/
