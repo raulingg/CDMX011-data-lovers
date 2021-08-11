@@ -12,14 +12,27 @@ const searchC = document.getElementById("search1");
 const root=document.getElementById("root")
 
 // Pantalla Principal
-window.onload = function printData() {
+window.onload = printFirstFiveCharacters
+
+// Función de imprimir 
+function print(characters) {
+  let screen = "";
+  characters.forEach((char) => {
+    screen += characterHTML(char);
+  });
+
+  return root.innerHTML = screen;
+}
+
+function printFirstFiveCharacters() {
   let firstFiveHTML = "";
-  characters.map((char) => {
+  characters.forEach((char) => {
     if (char.id <= 5) {
       firstFiveHTML += characterHTML(char);
-      root.innerHTML = firstFiveHTML;
     }
   });
+
+  root.innerHTML = firstFiveHTML;
 };
 
 // Pone en HTML
@@ -41,31 +54,16 @@ selectS.addEventListener("change", filter);
 
 selectSort.addEventListener("change", function(e){
   if(e.target.value == "za"){
-    limpiartodo()
     let newDataSort = sortDe(characters)
     print(newDataSort)
   }else if(e.target.value == "az"){
-    limpiartodo()
     let newDataSort = sortAs(characters)
-    print (newDataSort)
+    print(newDataSort)
   }
 });
 
 
-// Función de imprimir 
-function print(a) {
-  let screen = "";
-  a.map((char) => {
-    screen += characterHTML(char);
-    return document.getElementById("root").innerHTML = screen;
-  });
-}
 
-function limpiartodo(){
-  while(root.firstChild){
-    root.removeChild(root.firstChild)
-  }
-}
 
 // Funcion que cruza filtrados 
 function filter() {
@@ -77,12 +75,10 @@ function filter() {
   if (gender != "Gender") {
     filteredChar.push("gender");
     if (filteredChar.length == 1) {
-      limpiartodo();
       preFilter = filterGender(preFilter, gender, true);
       print(preFilter);
     }
     else {
-      limpiartodo();
       preFilter = filterGender(preFilter, gender, false);
       print(preFilter);
     }
@@ -91,25 +87,23 @@ function filter() {
   if (stat != "Status") {
     filteredChar.push("status");
     if (filteredChar.length == 1) {
-      limpiartodo();
       preFilter = filterStatus(preFilter, stat, true);
       print(preFilter);
     }
     else {
-      limpiartodo();
       preFilter = filterStatus(preFilter, stat, false);
       print(preFilter);
     }
   }
-  }
+}
 
   // Buscador de Personajes
-  searchC.addEventListener("keyup", (e) => {
-    limpiartodo();
-const search = e.target.value.toLowerCase();
-const charact = characters.filter((results) => {
-  return results.name.toLowerCase().includes(search); 
-});
-  print(charact);
+searchC.addEventListener("keyup", (e) => {
+  const search = e.target.value.toLowerCase();
+  const charact = characters.filter((results) => {
+    return results.name.toLowerCase().includes(search); 
   });
+  
+  print(charact);
+});
 
